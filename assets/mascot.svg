@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" fill="none">
+  <!-- Placeholder: 雪山小狐狸 Alfie / 等待替换为正式吉祥物图 -->
+  <defs>
+    <linearGradient id="bodyG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4C97A"/>
+      <stop offset="1" stop-color="#D89A3B"/>
+    </linearGradient>
+    <linearGradient id="hatG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B5F8E"/>
+      <stop offset="1" stop-color="#0F2C4A"/>
+    </linearGradient>
+    <radialGradient id="cheekG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#F58E8E" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#F58E8E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- snow ground shadow -->
+  <ellipse cx="200" cy="420" rx="110" ry="12" fill="#0F2C4A" opacity=".12"/>
+
+  <!-- scarf back -->
+  <path d="M120 260 Q200 290 280 260 L275 295 Q200 320 125 295 Z" fill="#C8553D"/>
+
+  <!-- body -->
+  <ellipse cx="200" cy="330" rx="95" ry="80" fill="url(#bodyG)"/>
+  <ellipse cx="200" cy="350" rx="55" ry="55" fill="#FFF1DA"/>
+
+  <!-- arms holding skis -->
+  <ellipse cx="115" cy="340" rx="22" ry="40" fill="url(#bodyG)" transform="rotate(-18 115 340)"/>
+  <ellipse cx="285" cy="340" rx="22" ry="40" fill="url(#bodyG)" transform="rotate(18 285 340)"/>
+
+  <!-- skis behind shoulder -->
+  <rect x="80" y="180" width="14" height="180" rx="6" fill="#2B5F8E" transform="rotate(-15 87 270)"/>
+  <rect x="306" y="180" width="14" height="180" rx="6" fill="#C9A14A" transform="rotate(15 313 270)"/>
+
+  <!-- head -->
+  <ellipse cx="200" cy="190" rx="110" ry="100" fill="url(#bodyG)"/>
+
+  <!-- white face/snout -->
+  <path d="M200 175 Q145 200 160 250 Q200 280 240 250 Q255 200 200 175Z" fill="#FFF1DA"/>
+
+  <!-- ears -->
+  <path d="M115 110 L135 180 L165 145 Z" fill="url(#bodyG)"/>
+  <path d="M285 110 L265 180 L235 145 Z" fill="url(#bodyG)"/>
+  <path d="M125 130 L142 170 L158 150 Z" fill="#FFF1DA"/>
+  <path d="M275 130 L258 170 L242 150 Z" fill="#FFF1DA"/>
+
+  <!-- ski hat (beanie) -->
+  <path d="M100 130 Q200 60 300 130 Q300 110 280 95 Q200 50 120 95 Q100 110 100 130 Z" fill="url(#hatG)"/>
+  <rect x="100" y="125" width="200" height="22" rx="11" fill="#C9A14A"/>
+  <circle cx="200" cy="68" r="14" fill="#FBF7F0"/>
+
+  <!-- goggles -->
+  <rect x="125" y="170" width="150" height="42" rx="20" fill="#0F2C4A"/>
+  <ellipse cx="160" cy="191" rx="22" ry="14" fill="#6A9EC6"/>
+  <ellipse cx="240" cy="191" rx="22" ry="14" fill="#6A9EC6"/>
+  <ellipse cx="153" cy="186" rx="6" ry="4" fill="#FFFFFF" opacity=".8"/>
+  <ellipse cx="233" cy="186" rx="6" ry="4" fill="#FFFFFF" opacity=".8"/>
+
+  <!-- nose -->
+  <ellipse cx="200" cy="235" rx="10" ry="8" fill="#1C2433"/>
+  <!-- mouth -->
+  <path d="M200 245 Q190 258 180 252 M200 245 Q210 258 220 252" stroke="#1C2433" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- cheeks -->
+  <circle cx="148" cy="232" r="14" fill="url(#cheekG)"/>
+  <circle cx="252" cy="232" r="14" fill="url(#cheekG)"/>
+
+  <!-- scarf front -->
+  <path d="M135 255 Q200 290 265 255 L260 280 Q200 305 140 280 Z" fill="#C8553D"/>
+  <path d="M255 280 L275 360 L245 365 L240 295 Z" fill="#C8553D"/>
+
+  <!-- small snowflake floating -->
+  <text x="320" y="100" font-family="serif" font-size="28" fill="#C9A14A" opacity=".7">❅</text>
+  <text x="60" y="240" font-family="serif" font-size="22" fill="#2B5F8E" opacity=".4">❅</text>
+  <text x="340" y="280" font-family="serif" font-size="20" fill="#2B5F8E" opacity=".4">❅</text>
+</svg>

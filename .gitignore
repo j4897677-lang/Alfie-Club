@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Raw photo dumps (备份用，不进仓库，节省空间)
+photos-raw/
+photos-web/
+brand-assets/
+
+# Stale duplicates from Finder
+*_副本.html
+*_副本.png
+*_副本.jpg
+
+# OS dump files anywhere
+**/.DS_Store
+
+# Local-only configs (if you add any)
+.env
+.env.local
+
+# Large video sources are kept in assets/ for inline embedding
+# (assets/张教练.mp4 is 5.8MB — fine for git)
+
+# Build outputs (none yet, but reserved)
+dist/
+build/
