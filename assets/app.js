@@ -43,12 +43,121 @@
   t.addEventListener('click', () => links.classList.toggle('open'));
 })();
 
-// Form submit alert (uses i18n)
-(function formAlert() {
-  document.querySelectorAll('form[data-i18n-alert]').forEach(f => {
-    f.addEventListener('submit', e => {
+// ===================================================
+// Form submission — dual channel: Formspree (email) + Feishu (group bot)
+// ===================================================
+// Configure these once after registering both services. Leave a value
+// as empty string to disable that channel.
+const FORM_CONFIG = {
+  // From https://formspree.io  →  "Endpoint" looks like:
+  //   https://formspree.io/f/xkgrabcd     ← paste the last segment here
+  formspreeId: '',
+
+  // From 飞书 群机器人 webhook URL — full URL like:
+  //   https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxxxx
+  feishuWebhook: '',
+};
+
+(function formSubmit() {
+  const forms = document.querySelectorAll('form[data-i18n-alert]');
+  if (!forms.length) return;
+
+  forms.forEach(form => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      alert(f.dataset.alertText || 'Thank you!');
+      const btn = form.querySelector('button[type="submit"]');
+      const originalBtnText = btn ? btn.textContent : '';
+      const lang = window.AlfieI18n && window.AlfieI18n.getLang() === 'en' ? 'en' : 'zh';
+
+      // Collect form data
+      const fd = new FormData(form);
+      const fields = {};
+      fd.forEach((v, k) => { fields[k] = v; });
+      // Read labels for nicer payloads
+      const labelMap = {};
+      form.querySelectorAll('.form-group').forEach(g => {
+        const lab = g.querySelector('label');
+        const inp = g.querySelector('input, select, textarea');
+        if (lab && inp) labelMap[inp.name || inp.id || lab.textContent] = lab.textContent.replace(/\s*\*\s*$/, '');
+      });
+      // Index unnamed inputs
+      const inputs = form.querySelectorAll('input, select, textarea');
+      const labels = form.querySelectorAll('label');
+      const data = {};
+      inputs.forEach((inp, i) => {
+        const lab = labels[i];
+        const k = lab ? lab.textContent.replace(/\s*\*\s*$/, '').trim() : (inp.name || `field_${i}`);
+        data[k] = inp.value;
+      });
+
+      // Disable button + show "sending"
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = lang === 'en' ? 'Sending…' : '提交中…';
+      }
+
+      const tasks = [];
+
+      // 1) Formspree (email)
+      if (FORM_CONFIG.formspreeId) {
+        const url = `https://formspree.io/f/${FORM_CONFIG.formspreeId}`;
+        tasks.push(
+          fetch(url, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...data, _subject: '🎿 Alfie Club 新预约', source: location.href })
+          }).then(r => ({ name: 'formspree', ok: r.ok }))
+            .catch(err => ({ name: 'formspree', ok: false, err }))
+        );
+      }
+
+      // 2) Feishu group bot
+      if (FORM_CONFIG.feishuWebhook) {
+        const lines = Object.entries(data).map(([k, v]) => `**${k}**: ${v || '—'}`).join('\n');
+        const card = {
+          msg_type: 'interactive',
+          card: {
+            header: { template: 'blue', title: { tag: 'plain_text', content: '🎿 Alfie Club 新预约' } },
+            elements: [
+              { tag: 'div', text: { tag: 'lark_md', content: lines } },
+              { tag: 'hr' },
+              { tag: 'note', elements: [{ tag: 'plain_text', content: `来源：${location.href}` }] }
+            ]
+          }
+        };
+        tasks.push(
+          fetch(FORM_CONFIG.feishuWebhook, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(card)
+          }).then(r => ({ name: 'feishu', ok: r.ok }))
+            .catch(err => ({ name: 'feishu', ok: false, err }))
+        );
+      }
+
+      // If nothing configured: warn dev, still show success to user
+      if (!tasks.length) {
+        console.warn('[Alfie] No form endpoints configured. Data will not be sent. See FORM_CONFIG in app.js');
+      }
+
+      // Wait for all channels; success if at least one worked, or if nothing configured (graceful)
+      const results = await Promise.all(tasks);
+      const anyOk = !tasks.length || results.some(r => r.ok);
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = originalBtnText;
+      }
+
+      if (anyOk) {
+        alert(form.dataset.alertText || (lang === 'en' ? 'Thank you! We will be in touch.' : '感谢您的提交！我们会尽快与您联系。'));
+        form.reset();
+      } else {
+        console.error('[Alfie] All submission channels failed:', results);
+        alert(lang === 'en'
+          ? 'Submission failed. Please try again, or contact us at alfie-jojo@alfieclub.cn'
+          : '提交失败，请重试，或直接邮件至 alfie-jojo@alfieclub.cn');
+      }
     });
   });
 })();
