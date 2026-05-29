@@ -55,7 +55,7 @@ const FORM_CONFIG = {
 
   // From 飞书 群机器人 webhook URL — full URL like:
   //   https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxxxx
-  feishuWebhook: '',
+  feishuWebhook: 'https://open.feishu.cn/open-apis/bot/v2/hook/f0559ef3-62d7-4a08-9624-d678a5c2321f',
 };
 
 (function formSubmit() {
@@ -112,6 +112,9 @@ const FORM_CONFIG = {
       }
 
       // 2) Feishu group bot
+      // Note: Feishu webhook may block CORS preflight. Using no-cors mode
+      // means we can't read the response, but the message still delivers.
+      // We optimistically treat any non-network-error as success.
       if (FORM_CONFIG.feishuWebhook) {
         const lines = Object.entries(data).map(([k, v]) => `**${k}**: ${v || '—'}`).join('\n');
         const card = {
@@ -128,9 +131,10 @@ const FORM_CONFIG = {
         tasks.push(
           fetch(FORM_CONFIG.feishuWebhook, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            mode: 'no-cors',                              // bypass CORS preflight
+            headers: { 'Content-Type': 'text/plain' },    // simple request, no preflight
             body: JSON.stringify(card)
-          }).then(r => ({ name: 'feishu', ok: r.ok }))
+          }).then(() => ({ name: 'feishu', ok: true }))   // opaque response, assume ok
             .catch(err => ({ name: 'feishu', ok: false, err }))
         );
       }
