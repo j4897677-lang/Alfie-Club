@@ -935,23 +935,27 @@ html[data-lang="en"] body { font-family: "Inter", -apple-system, sans-serif; }
   border-color: var(--gold-soft);
 }
 .partner-media {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
   position: relative;
   overflow: hidden;
   background: #0a0a0a;
 }
-.partner-media img,
+.partner-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;  /* 略偏上，确保肖像头部不被裁 */
+  display: block;
+}
 .partner-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background: #0a0a0a;
   display: block;
 }
-.partner-media video {
-  background: #0a0a0a;
-}
 .partner-body {
-  padding: 28px 26px 30px;
+  padding: 22px 24px 24px;
 }
 .partner-tag {
   display: inline-block;
@@ -985,7 +989,7 @@ html[data-lang="en"] body { font-family: "Inter", -apple-system, sans-serif; }
 
 @media (max-width: 720px) {
   .partners-grid { grid-template-columns: 1fr; }
-  .partner-media { aspect-ratio: 4 / 5; }
+  .partner-media { aspect-ratio: 16 / 10; }
 }
 
 /* Recruitment */
