@@ -251,6 +251,21 @@ const I18N = {
     "footer.company.short": "上海楷翌阿尔菲体育科技",
     "footer.rights": "保留所有权利",
 
+    // === Signed Partners ===
+    "partner.eyebrow": "Signed Partners · 签约伙伴",
+    "partner.h2": "雪山的延伸 ——<br>艺术家、选手、内容创作者。",
+    "partner.lead": "Alfie Club 不止于俱乐部。我们与艺术家、运动员、内容创作者长期合作，让每一个家庭被认真记录、让每一个孩子被认真鼓舞。",
+
+    "partner.photog.tag": "签约摄影师 · Photographer",
+    "partner.photog.name": "王 · Wang",
+    "partner.photog.role": "影像档案 · 家庭纪念片",
+    "partner.photog.bio": "镜头记录俱乐部每一个落雪与成长的瞬间。负责俱乐部家庭纪念片、雪场艺术影像、品牌视觉。",
+
+    "partner.athlete.tag": "签约小选手 · Junior Athlete",
+    "partner.athlete.name": "皮皮 · Pi Pi",
+    "partner.athlete.role": "U 系列竞赛潜力选手",
+    "partner.athlete.bio": "Alfie Club 青少年竞赛梯队首位签约小选手。日常训练、参赛、成长全程被记录，与俱乐部一起成长。",
+
     // === Recruitment ===
     "recruit.eyebrow": "Careers · 招聘",
     "recruit.h2": "我们正在寻找愿意把雪山生活做成事业的人。",
@@ -524,6 +539,7 @@ const I18N = {
     "footer.l.bespoke": "私人订制",
     "footer.l.coaches": "教练团队",
     "footer.l.careers": "招聘 · 加入团队",
+    "footer.l.partners": "签约伙伴",
     "footer.l.about": "关于 Alfie Club",
     "footer.l.ip": "内容 & IP",
     "footer.l.safety": "安全标准",
@@ -781,6 +797,21 @@ const I18N = {
     "footer.company": "Shanghai Kaiyi Alfie Sports Technology Co., Ltd.",
     "footer.company.short": "Shanghai Kaiyi Alfie Sports",
     "footer.rights": "All rights reserved",
+
+    // === Signed Partners ===
+    "partner.eyebrow": "Signed Partners",
+    "partner.h2": "Beyond the mountain ——<br>artists, athletes, storytellers.",
+    "partner.lead": "Alfie Club is more than a club. We work with artists, athletes, and content creators on long-term partnerships — so every family is properly remembered, and every child is properly inspired.",
+
+    "partner.photog.tag": "Photographer",
+    "partner.photog.name": "Wang",
+    "partner.photog.role": "Visual archive · family films",
+    "partner.photog.bio": "Capturing every snowfall and growth moment at the club. Heads up our family memory films, on-mountain artistic photography, and brand visuals.",
+
+    "partner.athlete.tag": "Junior Athlete",
+    "partner.athlete.name": "Pi Pi",
+    "partner.athlete.role": "U-series competition prospect",
+    "partner.athlete.bio": "Alfie Club's first signed young athlete. We document her training, races and growth — growing together with the club.",
 
     // === Recruitment ===
     "recruit.eyebrow": "Careers",
@@ -1055,6 +1086,7 @@ const I18N = {
     "footer.l.bespoke": "Bespoke",
     "footer.l.coaches": "Coaches",
     "footer.l.careers": "Careers · Join Us",
+    "footer.l.partners": "Signed Partners",
     "footer.l.about": "About Alfie Club",
     "footer.l.ip": "World & IP",
     "footer.l.safety": "Safety Standards",
