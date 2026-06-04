@@ -251,6 +251,22 @@ const I18N = {
     "footer.company.short": "上海楷翌阿尔菲体育科技",
     "footer.rights": "保留所有权利",
 
+    // === Coach Wang (4th coach) ===
+    "club.coach4.name": "王一峰 · Wang Yifeng",
+    "club.coach4.role": "单双板教练 · 签约摄影师",
+    "club.coach4.p": "崇礼云顶资深教练，单双板双修，同时是 Alfie Club 签约摄影师。镜头与赛道之间，记录每一次落雪。",
+
+    // === Photo Gallery (Coach Wang's photography) ===
+    "gallery.eyebrow": "Through the Lens · 镜头下的雪山",
+    "gallery.h2": "王一峰摄影作品集。",
+    "gallery.lead": "教练的另一重身份是摄影师。这些是王一峰镜头下的崇礼云顶——日出、雾凇、缆车、孩子滑下山的剪影。",
+    "gallery.caption1": "夕阳 · 一个人的雪坡",
+    "gallery.caption2": "逆光剪影 · 山顶之上",
+    "gallery.caption3": "红色缆车 · 云顶日常",
+    "gallery.caption4": "雾凇林 · 北方独有",
+    "gallery.caption5": "训练赛道 · 雪与雾凇",
+    "gallery.caption6": "云顶雪场 · 航拍",
+
     // === Signed Partners ===
     "partner.eyebrow": "Signed Partners · 签约伙伴",
     "partner.h2": "雪山的延伸 ——<br>艺术家、选手、内容创作者。",
@@ -797,6 +813,22 @@ const I18N = {
     "footer.company": "Shanghai Kaiyi Alfie Sports Technology Co., Ltd.",
     "footer.company.short": "Shanghai Kaiyi Alfie Sports",
     "footer.rights": "All rights reserved",
+
+    // === Coach Wang (4th coach) ===
+    "club.coach4.name": "Wang Yifeng",
+    "club.coach4.role": "Ski + Snowboard Coach · Signed Photographer",
+    "club.coach4.p": "Senior coach at Chongli Genting, certified in both ski and snowboard, and Alfie Club's signed photographer. Between the lens and the race line — capturing every snowfall.",
+
+    // === Photo Gallery (Coach Wang's photography) ===
+    "gallery.eyebrow": "Through the Lens",
+    "gallery.h2": "Wang Yifeng's photography series.",
+    "gallery.lead": "Our coach's other identity — photographer. These are Chongli Genting through Wang Yifeng's lens: sunrise, frost forest, gondolas, silhouettes of children carving downhill.",
+    "gallery.caption1": "Sunset · A Solo Slope",
+    "gallery.caption2": "Backlit Silhouette · Above the Summit",
+    "gallery.caption3": "Red Gondola · A Genting Day",
+    "gallery.caption4": "Frost Forest · A Northern Signature",
+    "gallery.caption5": "Training Course · Snow & Frost",
+    "gallery.caption6": "Genting Resort · Aerial",
 
     // === Signed Partners ===
     "partner.eyebrow": "Signed Partners",
