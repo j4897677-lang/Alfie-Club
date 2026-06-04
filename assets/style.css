@@ -177,15 +177,21 @@ section { padding: clamp(60px, 9vw, 120px) 0; position: relative; }
   border-radius: 2px;
 }
 .nav-cta {
-  background: var(--alpine-blue);
-  color: var(--cream);
+  background: var(--gold);
+  color: var(--alpine-deep);
   padding: 10px 20px;
   border-radius: 999px;
   font-size: 0.9rem;
-  font-weight: 600;
-  transition: transform .2s, box-shadow .2s, background .2s;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform .2s, box-shadow .2s, background .2s, color .2s;
 }
-.nav-cta:hover { color: var(--cream); background: var(--alpine-deep); transform: translateY(-1px); box-shadow: var(--shadow); }
+.nav-cta:hover {
+  color: var(--gold);
+  background: var(--alpine-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(201, 161, 74, 0.35);
+}
 
 .nav-toggle { display: none; background: transparent; border: none; cursor: pointer; }
 
